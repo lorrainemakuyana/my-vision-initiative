@@ -6,7 +6,7 @@ const defaultMeta = {
   siteName: "My Vision Initiative",
   description:
     "An organization on a mission to end teen pregnancy in Zimbabwe through empowerment.",
-  url: "https://my-vision-initiative.netlify.app/",
+  url: "https://myvisioninitiative.org",
   type: "website",
   robots: "follow, index",
   image: "/images/seo.png",

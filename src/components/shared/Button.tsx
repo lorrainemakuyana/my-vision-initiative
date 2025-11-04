@@ -1,92 +1,44 @@
-import clsxm from "@/lib/utils/clsxm";
-import { ImSpinner6 } from "react-icons/im";
-import { FaPencil } from "react-icons/fa6";
+import React from "react";
 
-export type ButtonProps = {
-  color?: "purple" | "white";
+interface ButtonProps {
   text: string;
-  classes?: string;
-  variant?: "get-started" | "default" | "share";
-  onClick: () => any;
+  onClick: () => void;
+  color: "magenta" | "purple";
   outline?: boolean;
-  isLoading?: boolean;
-  disabled?: boolean;
-};
+  className?: string;
+}
 
-function Button({
-  color = "purple",
+export default function Button({
   text,
   onClick,
-  classes,
-  variant,
-  outline,
-  disabled,
-  isLoading,
+  color,
+  outline = false,
+  className = "",
 }: ButtonProps) {
-  const getClasses = () => {
-    if (disabled) return "bg-gray-500 text-white border border-gray-500";
+  const getButtonStyles = () => {
+    const baseStyles =
+      "px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2";
 
-    switch (color) {
-      case "purple":
-        return "bg-purple text-white border border-purple";
-      case "white":
-        return "bg-white text-purple border border-white";
-      default:
-        return "bg-purple text-white border border-purple";
-    }
-  };
-
-  const getOutlineClasses = () => {
-    if (disabled) return "border-gray-500 text-gray-500 border";
-
-    switch (color) {
-      case "white":
-        return "border border-white text-white hover:text-white hover:bg-purple";
-      case "purple":
-        return "border border-purple text-purple hover:text-white hover:bg-purple";
-      default:
-        return "border border-purple text-purple hover:text-white hover:bg-purple";
+    if (outline) {
+      // Outline styles
+      if (color == "magenta") {
+        return `${baseStyles} border-2 border-magenta text-magenta bg-transparent hover:bg-magenta hover:text-white focus:ring-magenta`;
+      } else {
+        return `${baseStyles} border-2 border-purple text-purple bg-transparent hover:bg-purple hover:text-white focus:ring-purple`;
+      }
+    } else {
+      // Filled styles
+      if (color === "magenta") {
+        return `${baseStyles} bg-magenta text-white hover:bg-magenta/90 hover:shadow-lg focus:ring-magenta`;
+      } else {
+        return `${baseStyles} bg-purple text-white hover:bg-purple/90 hover:shadow-lg focus:ring-purple`;
+      }
     }
   };
 
   return (
-    <button
-      disabled={disabled || isLoading}
-      onClick={onClick}
-      className={clsxm(
-        outline ? getOutlineClasses() : getClasses(),
-        "font-lato inline-flex flex-row items-center space-x-5 px-4 py-1.5 text-center text-sm font-normal tracking-wider",
-        "relative transform justify-center rounded-md transition-transform hover:scale-105 disabled:cursor-not-allowed",
-        classes,
-      )}
-    >
+    <button onClick={onClick} className={`${getButtonStyles()}  ${className}`}>
       {text}
-      {variant == "get-started" && (
-        <svg
-          className="ml-2 h-4 w-4"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fillRule="evenodd"
-            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          ></path>
-        </svg>
-      )}
-      {isLoading && (
-        <div
-          className={clsxm(
-            "absolute left-0 top-0 h-full w-full bg-white bg-opacity-5 backdrop-blur",
-            "flex items-center justify-center",
-          )}
-        >
-          <ImSpinner6 className="h-4 w-4 animate-spin" />
-        </div>
-      )}
     </button>
   );
 }
-
-export default Button;

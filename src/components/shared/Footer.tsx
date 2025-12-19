@@ -12,7 +12,7 @@ import { MdOutlineEmail } from "react-icons/md";
 
 function Footer() {
   return (
-    <footer className="border-t-magenta border-t bg-white p-5 text-center text-base text-black">
+    <footer className="border-t-magenta border-t bg-inherit p-5 text-center text-base text-black">
       <p>&copy;{new Date().getFullYear()} My Vision Initiative</p>
     </footer>
   );

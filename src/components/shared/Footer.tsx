@@ -1,54 +1,60 @@
+import Link from "next/link";
 import React from "react";
-import { IoCall } from "react-icons/io5";
-import {
-  FaWhatsapp,
-  FaXTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-  FaYoutube,
-} from "react-icons/fa6";
-import { MdOutlineEmail } from "react-icons/md";
 
 function Footer() {
   return (
-    <footer className="border-t-magenta border-t bg-inherit p-5 text-center text-base text-black">
-      <p>&copy;{new Date().getFullYear()} My Vision Initiative</p>
-    </footer>
-  );
-
-  return (
-    <section className="border-magenta border-t p-5 text-sm text-black">
-      <div className="mx-auto flex w-full max-w-7xl flex-row items-center justify-center lg:justify-between">
-        <div className="hidden flex-row space-x-10 lg:flex">
-          <a
-            href="https://web.facebook.com/myvisioninitiative/"
-            target="_blank"
-          >
-            <FaFacebook className=" h-6 w-6" />
+    <footer className="border-[0.5px] border-t border-t-gray-200 bg-white p-10 text-center text-base text-black ">
+      <div className="mx-auto max-w-7xl text-center">
+        <a
+          href="#"
+          className="flex items-center justify-center text-2xl font-semibold text-gray-900 "
+        >
+          <img
+            src="/images/logo.webp"
+            className="mr-4 h-10 rounded-sm"
+            alt="My Vision Initiative Logo"
+          />
+          My Vision Initiative
+        </a>
+        <p className="my-6 text-black">
+          Empowering young women and girls in Zimbabwe
+        </p>
+        <ul className="text-magenta mb-6 flex flex-wrap items-center justify-center ">
+          <li>
+            <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/#journey" className="mr-4 hover:underline md:mr-6">
+              Our Journey
+            </Link>
+          </li>
+          <li>
+            <Link href="/programs" className="mr-4 hover:underline md:mr-6 ">
+              Programs
+            </Link>
+          </li>
+          <li>
+            <Link href="#faqs" className="mr-4 hover:underline md:mr-6">
+              FAQs
+            </Link>
+          </li>
+          <li>
+            <Link href="#contact" className="mr-4 hover:underline md:mr-6">
+              Contact
+            </Link>
+          </li>
+        </ul>
+        <span className="text-sm text-gray-500 sm:text-center ">
+          &copy; 2020-{new Date().getFullYear()}{" "}
+          <a href="#" className="hover:underline">
+            My Vision Initiative
           </a>
-          <a
-            href="https://www.instagram.com/myvisioninitiative/"
-            target="_blank"
-          >
-            <FaInstagram className=" h-6 w-6" />
-          </a>
-          <a
-            href="https://www.linkedin.com/company/my-vision-initiative/"
-            target="_blank"
-          >
-            <FaLinkedin className=" h-6 w-6" />
-          </a>
-          <a
-            href="https://www.youtube.com/channel/UC2doZCOhujqVWHP3DoamDwg"
-            target="_blank"
-          >
-            <FaYoutube className=" h-6 w-6" />
-          </a>
-        </div>
-        <p>&copy;{new Date().getFullYear()} My Vision Initiative</p>
+          . All Rights Reserved.
+        </span>
       </div>
-    </section>
+    </footer>
   );
 }
 

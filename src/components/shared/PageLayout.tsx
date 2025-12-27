@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Seo from "./Seo";
+import Contact from "../Contact";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -34,6 +35,7 @@ function PageLayout({
       />
       <Header />
       <div className="grow">{children}</div>
+      <Contact />
       <Footer />
     </main>
   );

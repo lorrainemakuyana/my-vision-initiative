@@ -41,7 +41,7 @@ function Contact() {
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
-          <h2 className="font-playfairDisplay mb-3 text-4xl font-bold text-black">
+          <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
             CONTACT US
           </h2>
           <p className=" mx-auto max-w-2xl text-gray-500">

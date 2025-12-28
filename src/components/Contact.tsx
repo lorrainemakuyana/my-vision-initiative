@@ -38,14 +38,14 @@ function Contact() {
 
   return (
     <section className="w-full bg-white px-4 py-16" id="contact">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="mb-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
           <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
             CONTACT US
           </h2>
           <p className=" mx-auto max-w-2xl text-gray-500">
-            If you have any questions, please feel free to get in touch with us
+            If you have any questions, get in touch with us
             via email, or even on social media! We are here to help empower
             young women and girls in Zimbabwe.
           </p>

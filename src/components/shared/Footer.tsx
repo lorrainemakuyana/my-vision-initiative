@@ -16,7 +16,7 @@ function Footer() {
           />
           My Vision Initiative
         </a>
-        <p className="my-6 text-black">
+        <p className="my-6 font-light text-black">
           Empowering young women and girls in Zimbabwe
         </p>
         <ul className="text-magenta mb-6 flex flex-wrap items-center justify-center ">
@@ -46,7 +46,7 @@ function Footer() {
             </Link>
           </li>
         </ul>
-        <span className="text-sm text-gray-500 sm:text-center ">
+        <span className="text-sm font-light text-gray-500 sm:text-center">
           &copy; 2020-{new Date().getFullYear()}{" "}
           <a href="#" className="hover:underline">
             My Vision Initiative

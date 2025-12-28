@@ -130,7 +130,7 @@ function Contact() {
                   <MdOutlineEmail className="text-magenta mt-0.5 h-6 w-6" />
                   <div>
                     <p className=" text-sm font-semibold text-black">EMAIL</p>
-                    <p className=" text-gray-600">
+                    <p className=" font-light text-gray-600">
                       {process.env.NEXT_PUBLIC_CONTACT_EMAIL}
                     </p>
                   </div>
@@ -146,7 +146,7 @@ function Contact() {
                       href={process.env.NEXT_PUBLIC_WHATSAPP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className=" text-magenta transition-colors hover:text-purple-800"
+                      className=" text-magenta hover:text-purple-80 font-light transition-colors"
                     >
                       {process.env.NEXT_PUBLIC_CONTACT_WHATSAPP}
                     </a>
@@ -163,7 +163,7 @@ function Contact() {
                       href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className=" text-magenta transition-colors hover:text-purple-800"
+                      className=" text-magenta font-light transition-colors hover:text-purple-800"
                     >
                       {process.env.NEXT_PUBLIC_CONTACT_INSTAGRAM}
                     </a>
@@ -176,7 +176,7 @@ function Contact() {
             <div className="flex h-full flex-1 flex-col rounded-xl bg-gray-100 p-6 md:p-8">
               <h3 className="font-playfairDisplay text-lg font-semibold text-black">
                 BUSINESS HOURS
-                <p className=" mt-2 text-sm font-normal text-gray-600">
+                <p className=" mt-2 text-sm font-light text-gray-600">
                   All times are in Central African Time (GMT+2)
                 </p>
                 <hr className="mt-2 h-0.5 w-full text-gray-300" />
@@ -189,15 +189,15 @@ function Contact() {
                   <p className=" text-sm font-semibold text-black">
                     MONDAY - FRIDAY
                   </p>
-                  <p className=" text-gray-600">8:00 am - 5:00 pm</p>
+                  <p className=" font-light text-gray-600">8:00 am - 5:00 pm</p>
                 </div>
                 <div>
                   <p className=" text-sm font-semibold text-black">SATURDAY</p>
-                  <p className=" text-gray-600">9:00 am - 3:00 pm</p>
+                  <p className=" font-light text-gray-600">9:00 am - 3:00 pm</p>
                 </div>
                 <div>
                   <p className=" text-sm font-semibold text-black">SUNDAY</p>
-                  <p className=" text-gray-600">Closed</p>
+                  <p className=" font-light text-gray-600">Closed</p>
                 </div>
               </div>
             </div>

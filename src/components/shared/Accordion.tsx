@@ -60,7 +60,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
               animate={{ y: 0 }}
               exit={{ y: -10 }}
               transition={{ duration: 0.2, delay: 0.1 }}
-              className="p-4 leading-relaxed text-gray-500"
+              className="p-4 font-light leading-relaxed text-gray-500"
             >
               {answer}
             </motion.div>

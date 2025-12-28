@@ -44,10 +44,10 @@ function Contact() {
           <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
             CONTACT US
           </h2>
-          <p className=" mx-auto max-w-2xl text-gray-500">
-            If you have any questions, get in touch with us
-            via email, or even on social media! We are here to help empower
-            young women and girls in Zimbabwe.
+          <p className=" mx-auto max-w-2xl font-light text-gray-600">
+            If you have any questions, get in touch with us via email, or even
+            on social media! We are here to help empower young women and girls
+            in Zimbabwe.
           </p>
         </div>
 

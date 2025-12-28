@@ -1,6 +1,5 @@
 import Accordion from "@/components/shared/Accordion";
 import PageBanner from "@/components/shared/PageBanner";
-import PageLayout from "@/components/shared/PageLayout";
 import { faqs } from "@/lib/faqs";
 
 export default function FAQ() {

@@ -5,21 +5,23 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 
-export default function Journey() {
+export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
   return (
     <section id="journey" className="w-full px-4 py-16 sm:px-6 lg:px-10">
-      <div className="mx-auto max-w-6xl">
+      <div className="w-full px-5 lg:mx-auto lg:max-w-6xl lg:px-0">
         {/* Header */}
-        <div className="mb-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
-          <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
-            OUR JOURNEY
-          </h2>
-          <p className=" mx-auto max-w-2xl text-gray-500">
-            Every milestone reflects our commitment to empowering women and
-            creating lasting change for young women and girls. Here is how far
-            we have come:
-          </p>
-        </div>
+        {showTitle && (
+          <div className="mb-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">
+            <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
+              OUR JOURNEY
+            </h2>
+            <p className="mx-auto max-w-2xl font-light text-gray-600">
+              Every milestone reflects our commitment to empowering women and
+              creating lasting change for young women and girls. Here is how far
+              we have come:
+            </p>
+          </div>
+        )}
         {/* Timeline */}
         <VerticalTimeline lineColor="#d1d5dc">
           {journeyData.map((item, index) => (
@@ -58,7 +60,9 @@ export default function Journey() {
                   {theme}
                 </span>
               ))}
-              <p>{item.description}</p>
+              <p className="font-lato font-light! text-center">
+                {item.description}
+              </p>
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>

@@ -1,4 +1,6 @@
 import "@/styles/globals.css";
+import "react-vertical-timeline-component/style.min.css";
+
 import type { AppProps } from "next/app";
 import Layout from "@/components/shared/PageLayout";
 

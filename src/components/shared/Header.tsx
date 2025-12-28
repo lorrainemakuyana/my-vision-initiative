@@ -5,10 +5,10 @@ import React from "react";
 function Header() {
   return (
     <nav className="bg-magenta fixed start-0 top-0 z-20 w-full text-white shadow-md">
-      <div className="mx-auto flex h-20 max-w-7xl flex-wrap items-center justify-between p-4">
+      <div className="mx-auto flex h-20 w-full max-w-6xl flex-wrap items-center justify-between">
         <Link
           href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+          className="flex items-center space-x-3 pl-6 lg:px-0 rtl:space-x-reverse"
         >
           <img
             src="/images/mvi-text.png"
@@ -18,7 +18,7 @@ function Header() {
         </Link>
         <div className="hidden flex-row items-center lg:flex">
           <Link
-            href="#journey"
+            href="/our-journey"
             className="transform underline-offset-4 transition-colors hover:scale-110 hover:underline"
           >
             Our Journey

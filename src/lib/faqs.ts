@@ -1,4 +1,6 @@
-export const faqs = [
+import { IFAQ } from "@/interfaces";
+
+export const faqs: IFAQ[] = [
   // General
   {
     question: "What is MVI and why was it created?",

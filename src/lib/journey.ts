@@ -1,11 +1,5 @@
 import { IJourneyItem } from "@/interfaces";
-import {
-  FiUsers,
-  FiMic,
-  FiVideo,
-  FiShield,
-  FiRefreshCw,
-} from "react-icons/fi";
+import { FiUsers, FiMic, FiVideo, FiShield, FiRefreshCw } from "react-icons/fi";
 import { FaRegLightbulb } from "react-icons/fa";
 
 export const journeyData: IJourneyItem[] = [
@@ -40,6 +34,14 @@ export const journeyData: IJourneyItem[] = [
       'We partnered with Simuka Mwanasikana Zimbabwe to discuss the topic "Who am I? The concept of self realization" to help with issues of self esteem and self worth among young women and girls.',
     themes: ["Workshops", "Partnerships"],
     icon: FiVideo,
+  },
+  {
+    date: "June 2022",
+    title: "Get Engaged Conference",
+    description:
+      "My Vision Initiative was invited to showcase its programs at the Get Engaged Conference. Student leaders from allover the world studying at OSUN institutions graced the conference. Following the conference, My Vision Initiative has been invited to speak on several occasions, in line with its values of creating meaningful partnerships for the benefit of young women and girls.",
+    themes: ["Conferences", "Partnerships"],
+    icon: FiMic,
   },
   {
     date: "February - May 2023",

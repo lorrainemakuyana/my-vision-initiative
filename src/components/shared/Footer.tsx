@@ -30,11 +30,11 @@ function Footer() {
               Our Journey
             </Link>
           </li>
-          {/* <li>
+          <li>
             <Link href="/programs" className="mr-4 hover:underline md:mr-6 ">
               Programs
             </Link>
-          </li> */}
+          </li>
           <li>
             <Link href="/faqs" className="mr-4 hover:underline md:mr-6">
               FAQs

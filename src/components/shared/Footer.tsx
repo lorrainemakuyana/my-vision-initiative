@@ -21,20 +21,20 @@ function Footer() {
         </p>
         <ul className="text-magenta mb-6 flex flex-wrap items-center justify-center ">
           <li>
-            <Link href="/about" className="mr-4 hover:underline md:mr-6 ">
+            <Link href="/" className="mr-4 hover:underline md:mr-6 ">
               About
             </Link>
           </li>
           <li>
-            <Link href="/#journey" className="mr-4 hover:underline md:mr-6">
+            <Link href="/our-journey" className="mr-4 hover:underline md:mr-6">
               Our Journey
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/programs" className="mr-4 hover:underline md:mr-6 ">
               Programs
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/faqs" className="mr-4 hover:underline md:mr-6">
               FAQs

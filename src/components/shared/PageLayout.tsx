@@ -24,7 +24,7 @@ function PageLayout({
   canonical,
 }: PageLayoutProps) {
   return (
-    <main className="flex min-h-screen flex-col bg-gray-100">
+    <>
       <Seo
         title={title}
         description={description}
@@ -34,10 +34,12 @@ function PageLayout({
         canonical={canonical}
       />
       <Header />
-      <div className="grow">{children}</div>
-      <Contact />
-      <Footer />
-    </main>
+      <main className="font-lato flex min-h-screen flex-col bg-gray-100">
+        <div className="grow">{children}</div>
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }
 

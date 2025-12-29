@@ -13,18 +13,17 @@ function Contact() {
     const formData = new FormData(form);
 
     try {
-      // TODO: Implement actual form submission logic
-      //   const response = await fetch("/api/contact", {
-      //     method: "POST",
-      //     headers: { "Content-Type": "application/json" },
-      //     body: JSON.stringify(Object.fromEntries(formData)),
-      //   });
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      });
 
-      //   const data = await response.json();
+      const data = await response.json();
 
-      //   if (!response.ok) {
-      //     throw new Error(data.error || "Request failed. Please try again");
-      //   }
+      if (!response.ok) {
+        throw new Error(data.error || "Request failed. Please try again");
+      }
 
       toast.success("Your message has been sent successfully!");
       form.reset();
@@ -69,6 +68,9 @@ function Contact() {
                   <input
                     type="text"
                     placeholder="Jane"
+                    name="name"
+                    id="name"
+                    required
                     className="focus:ring-magenta w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2"
                   />
                 </div>
@@ -79,6 +81,8 @@ function Contact() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
+                    id="phone"
                     placeholder="+1234567890"
                     className="focus:ring-magenta w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2"
                   />
@@ -91,6 +95,9 @@ function Contact() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  id="email"
+                  required
                   placeholder="email@example.com"
                   className="focus:ring-magenta w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2"
                 />
@@ -102,14 +109,26 @@ function Contact() {
                 </label>
                 <textarea
                   rows={5}
+                  required
+                  name="message"
+                  id="message"
+                  minLength={20}
                   placeholder="Tell us how we can help you..."
                   className=" focus:ring-magenta w-full resize-none rounded-md border border-gray-300 bg-white px-4 py-2 text-black focus:outline-none focus:ring-2"
                 />
               </div>
 
+              <input
+                type="text"
+                name="honey"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <button
                 type="submit"
-                className="bg-magenta w-full rounded-md py-3 font-semibold text-white transition hover:bg-purple-700"
+                className="bg-magenta w-full rounded-md py-3 font-normal text-white transition hover:scale-105"
               >
                 Send Message
               </button>

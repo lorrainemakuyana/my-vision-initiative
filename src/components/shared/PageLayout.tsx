@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Seo from "../Seo";
 import Contact from "../Contact";
+import { Toaster } from "sonner";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -39,6 +40,7 @@ function PageLayout({
         <Contact />
         <Footer />
       </main>
+      <Toaster position="bottom-right" theme="light" />
     </>
   );
 }

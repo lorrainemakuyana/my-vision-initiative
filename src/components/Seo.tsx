@@ -16,9 +16,9 @@ interface SeoProps {
 
 const defaultMeta = {
   siteName: "My Vision Initiative",
-  defaultTitle: "My Vision Initiative - Empowering Youth in Zimbabwe",
+  defaultTitle: "My Vision Initiative - Empowering Young women and girls in Zimbabwe",
   defaultDescription:
-    "My Vision Initiative is an organization on a mission to empower young women and girls through curated programs!",
+    "My Vision Initiative is a registered organization in Zimbabwe on a mission to empower young women and girls through curated programs!",
   siteUrl: "https://myvisioninitiative.org",
   defaultImage: "/images/logo.png",
   twitterHandle: "@mvi_initiative",

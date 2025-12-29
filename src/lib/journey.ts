@@ -5,7 +5,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 export const journeyData: IJourneyItem[] = [
   {
     date: "January 2020",
-    title: "Idea Initiation",
+    title: "Inception",
     description:
       "My Vision Initiative was founded with a clear mission to empower women through education, mentorship, entreprenuership, leadership, personal and professional development. We established our core values and organizational structure to create sustainable pathways for young women's success.",
     themes: ["Foundation", "Launch", "Idea initiation"],

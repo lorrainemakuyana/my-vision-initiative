@@ -61,7 +61,7 @@ const faculties: Faculty[] = [
 
 function Banner() {
   return (
-    <section className="bg-white pt-16 lg:pt-0">
+    <section className="pt-16 lg:pt-0">
       <Image
         src="/images/let-girls-shine.webp"
         alt="Let the girls shine!"
@@ -86,9 +86,11 @@ function Banner() {
           {faculties.map((faculty: Faculty, index: number) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center space-y-3 rounded-md border border-gray-100 bg-white p-10 text-black shadow-lg shadow-gray-200"
+              className="flex flex-col items-center justify-center space-y-3 rounded-md border border-gray-100 bg-white p-10 text-black shadow-lg shadow-gray-300"
             >
-              {faculty.icon}
+              <p className="text-magenta">
+                {faculty.icon}
+              </p>
               <h1 className="font-lato text-xl font-medium">{faculty.name}</h1>
               <p className="font-lato text-center font-light">
                 {faculty.description}

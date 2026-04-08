@@ -52,7 +52,7 @@ export const journeyData: IJourneyItem[] = [
     icon: FiShield,
   },
   {
-    date: "December 2025",
+    date: "January 2026",
     title: "Organization Revamp & Restructure",
     description:
       "We restructured our organization to enhance efficiency and scalability, ensuring sustainable growth and long-term impact for young women's empowerment in Zimbabwe.",

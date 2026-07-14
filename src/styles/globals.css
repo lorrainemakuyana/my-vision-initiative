@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Google Sans Flex", sans-serif;
+  /* Loaded via next/font in _app.tsx, which sets these CSS variables. */
+  --font-lato: var(--font-lato-sans), sans-serif;
+  --font-playfairDisplay: var(--font-playfair-display), serif;
+  --font-sans: var(--font-lato-sans), sans-serif;
   --color-purple: #7830fd;
   --color-darkpurple: #3803a2;
   --color-magenta: #e11584;

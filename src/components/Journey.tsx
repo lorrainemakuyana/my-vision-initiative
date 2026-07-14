@@ -1,11 +1,26 @@
 import { journeyData } from "@/lib/journey";
+import Link from "next/link";
 import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 
-export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
+interface JourneyProps {
+  showTitle?: boolean;
+  /**
+   * Cap the number of milestones shown. The homepage teases the most recent few
+   * and links to /our-journey for the rest, rather than reprinting the whole
+   * timeline the dedicated page already carries.
+   */
+  limit?: number;
+}
+
+export default function Journey({ showTitle = true, limit }: JourneyProps) {
+  // journeyData runs oldest-first, so the newest milestones are at the end.
+  const items = limit ? journeyData.slice(-limit).reverse() : journeyData;
+  const isTruncated = Boolean(limit && journeyData.length > limit);
+
   return (
     <section
       id="journey"
@@ -18,7 +33,7 @@ export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
             <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
               OUR JOURNEY
             </h2>
-            <p className="mx-auto max-w-2xl font-light text-gray-600">
+            <p className="font-lato mx-auto max-w-2xl font-light text-gray-600">
               Every milestone reflects our commitment to empowering women and
               creating lasting change for young women and girls. Here is how far
               we have come:
@@ -27,7 +42,7 @@ export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
         )}
         {/* Timeline */}
         <VerticalTimeline lineColor="#f3f4f6">
-          {journeyData.map((item, index) => (
+          {items.map((item, index) => (
             <VerticalTimelineElement
               key={`${item.date}-${item.title}`}
               className="vertical-timeline-element--work"
@@ -73,6 +88,17 @@ export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
             </VerticalTimelineElement>
           ))}
         </VerticalTimeline>
+
+        {isTruncated && (
+          <div className="mt-10 text-center">
+            <Link
+              href="/our-journey"
+              className="border-magenta text-magenta hover:bg-magenta inline-block rounded-full border-2 px-6 py-2 font-light transition hover:text-white"
+            >
+              See our full journey
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -5,8 +5,9 @@ import React, { useEffect, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const navLinks = [
-  { href: "/our-journey", label: "Our Journey" },
+  { href: "/about", label: "About" },
   { href: "/programs", label: "Programs" },
+  { href: "/impact", label: "Impact" },
   { href: "/news", label: "News" },
   { href: "/volunteer", label: "Volunteer" },
 ];
@@ -59,7 +60,7 @@ function Header() {
                   height="6"
                   viewBox="0 0 4 4"
                   fill="none"
-                  className="mx-4"
+                  className="mx-3"
                   aria-hidden="true"
                 >
                   <circle cx="2" cy="2" r="2" fill="white" />
@@ -74,10 +75,10 @@ function Header() {
             </React.Fragment>
           ))}
           <Link
-            href="#contact"
+            href="/donate"
             className="font-lato text-magenta ml-5 transform rounded-md bg-white px-4 py-2 shadow-md transition hover:scale-105 hover:bg-gray-100 hover:shadow-lg"
           >
-            Contact Us
+            Support Us
           </Link>
         </div>
       </div>
@@ -100,10 +101,10 @@ function Header() {
             ))}
           </ul>
           <Link
-            href="#contact"
+            href="/donate"
             className="font-lato text-magenta mt-5 block rounded-md bg-white px-4 py-3 text-center shadow-md transition hover:bg-gray-100"
           >
-            Contact Us
+            Support Us
           </Link>
         </div>
       )}

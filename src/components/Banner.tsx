@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { IoSettingsOutline } from "react-icons/io5";
 import { PiDiamondsFourLight, PiGenderIntersex } from "react-icons/pi";
 import { GiTeamIdea } from "react-icons/gi";
@@ -96,6 +97,15 @@ function Banner() {
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <Link
+            href="/programs"
+            className="border-magenta text-magenta hover:bg-magenta inline-block rounded-full border-2 px-6 py-2 font-light transition hover:text-white"
+          >
+            See how our programs work
+          </Link>
         </div>
       </div>
     </section>

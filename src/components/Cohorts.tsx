@@ -35,13 +35,13 @@ function CohortsProgram() {
           <h2 className="font-playfairDisplay text-magenta mb-3 text-4xl font-bold">
             THE #MVIExperience
           </h2>
-          <p className="mx-auto max-w-2xl font-light text-black">
+          <div className="mx-auto max-w-2xl font-light text-black">
             <p className="mb-3">
               A chance to set yourself on course, bringing out the best you.
             </p>
             <p className="mb-3">
               Designed for young women and girls aged 15-21 years, for a first
-              hand exprience of MVI as a whole, delivered by the MVI team and
+              hand experience of MVI as a whole, delivered by the MVI team and
               carefully selected industry experts.
             </p>
             <p>
@@ -50,11 +50,11 @@ function CohortsProgram() {
               women who take up space. The program is offered mostly virtually
               via Zoom and WhatsApp, and will soon be launched in-person in
               Zimbabwe. Stipends to cater for data costs will be provided for
-              participants on a needs basis. and although rigorous and
+              participants on a needs basis, and although rigorous and
               intensive, this program is by far the best way to access MVI
               resources and interact with us first hand.
             </p>
-          </p>
+          </div>
         </div>
 
         <div className="mb-12 grid grid-cols-1 gap-5 lg:grid-cols-2 lg:items-start">

@@ -101,7 +101,7 @@ function Banner() {
 
         <div className="mt-10 text-center">
           <Link
-            href="/programs"
+            href="/mviexperience"
             className="border-magenta text-magenta hover:bg-magenta inline-block rounded-full border-2 px-6 py-2 font-light transition hover:text-white"
           >
             See how our programs work

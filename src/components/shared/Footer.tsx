@@ -9,7 +9,7 @@ const footerLinks: { heading: string; links: { href: string; label: string }[] }
       links: [
         { href: "/about", label: "About Us" },
         { href: "/our-journey", label: "Our Journey" },
-        { href: "/programs", label: "Programs" },
+        { href: "/mviexperience", label: "Programs" },
         { href: "/impact", label: "Our Impact" },
       ],
     },

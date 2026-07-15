@@ -15,7 +15,8 @@ interface SitemapEntry {
 const staticPages: SitemapEntry[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: "/about", changefreq: "monthly", priority: "0.8" },
-  { path: "/programs", changefreq: "monthly", priority: "0.9" },
+  { path: "/mviexperience", changefreq: "monthly", priority: "0.9" },
+  { path: "/mviexperience/apply", changefreq: "monthly", priority: "0.8" },
   { path: "/impact", changefreq: "monthly", priority: "0.8" },
   { path: "/donate", changefreq: "monthly", priority: "0.9" },
   { path: "/volunteer", changefreq: "monthly", priority: "0.8" },

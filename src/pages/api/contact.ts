@@ -3,7 +3,14 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-function isSpam({ name, email, message, honey }: any) {
+interface ContactPayload {
+  name?: string;
+  email?: string;
+  message?: string;
+  honey?: string;
+}
+
+function isSpam({ name, email, message, honey }: ContactPayload) {
   if (honey && honey.trim() !== "") return true; // This is a bot
 
   const suspectPhrases = ["http://", "https://", "buy now", "free money"];
@@ -17,12 +24,22 @@ function validateEmail(email: string) {
   return re.test(email);
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+// Submitted values land in an HTML email, so they must not be able to carry markup.
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { name, email, message, honey } = req.body || {};
+  const { name, email, message, honey }: ContactPayload = req.body || {};
 
   if (isSpam({ name, email, message, honey })) {
     return res.status(403).json({ error: "Spam detected, message rejected" });
@@ -42,9 +59,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     replyTo: email,
     subject: `MVI - New contact form message from ${name}`,
     html: `
-        <h2>Hello from ${name}</h2>
-        <h4>Email address: ${email}</h4>
-        <p>${message}</p>
+        <h2>Hello from ${escapeHtml(name)}</h2>
+        <h4>Email address: ${escapeHtml(email)}</h4>
+        <p>${escapeHtml(message).replace(/\n/g, "<br />")}</p>
       `,
   });
 
@@ -53,4 +70,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   res.status(200).json(data);
-};
+}
+
+export default handler;

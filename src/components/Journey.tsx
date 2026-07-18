@@ -1,5 +1,5 @@
 import { journeyData } from "@/lib/journey";
-import React, { useMemo } from "react";
+import React from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -29,6 +29,7 @@ export default function Journey({ showTitle = true }: { showTitle?: boolean }) {
         <VerticalTimeline lineColor="#f3f4f6">
           {journeyData.map((item, index) => (
             <VerticalTimelineElement
+              key={`${item.date}-${item.title}`}
               className="vertical-timeline-element--work"
               position={index % 2 === 0 ? "left" : "right"}
               contentStyle={{

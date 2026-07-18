@@ -1,35 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
 
+const videos = [
+  { id: "C8BmlSzIkUE", key: "video1" },
+  { id: "5u7QZt61VwU", key: "video2" },
+];
+
 function Testimonials() {
-  const [endedVideo, setEndedVideo] = useState<null | string>(null);
-  const playerRefs = useRef<Record<string, any>>({});
-
-  useEffect(() => {
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.body.appendChild(tag);
-
-    (window as any).onYouTubeIframeAPIReady = () => {
-      Object.keys(playerRefs.current).forEach((id) => {
-        playerRefs.current[id] = new (window as any).YT.Player(id, {
-          events: {
-            onStateChange: (event: any) => {
-              if (event.data === 0) {
-                setEndedVideo(id);
-              }
-            },
-          },
-        });
-      });
-    };
-  }, []);
-
-  const videos = [
-    { id: "C8BmlSzIkUE", key: "video1" },
-    { id: "5u7QZt61VwU", key: "video2" },
-  ];
-
   return (
     <section className="space-y-10 py-20">
       <div className="w-full px-5 lg:mx-auto lg:max-w-6xl lg:px-0">
@@ -47,7 +24,7 @@ function Testimonials() {
         </div>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {videos.map((video) => (
-            <div id={video.key} className="h-full w-full">
+            <div key={video.key} className="h-full w-full">
               <YouTubeEmbed
                 videoid={video.id}
                 params="controls=1&rel=0&modestbranding=1&playsinline=1"

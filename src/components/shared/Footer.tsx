@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -5,17 +6,19 @@ function Footer() {
   return (
     <footer className="border-[0.5px] border-t border-t-gray-200 bg-white p-10 text-center text-base text-black ">
       <div className="mx-auto max-w-7xl text-center">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="flex items-center justify-center text-2xl font-semibold text-gray-900 "
         >
-          <img
+          <Image
             src="/images/logo.webp"
-            className="mr-4 h-10 rounded-sm"
+            width={40}
+            height={40}
+            className="mr-4 h-10 w-auto rounded-sm"
             alt="My Vision Initiative Logo"
           />
           My Vision Initiative
-        </a>
+        </Link>
         <p className="my-6 font-light text-black">
           Empowering young women and girls in Zimbabwe
         </p>

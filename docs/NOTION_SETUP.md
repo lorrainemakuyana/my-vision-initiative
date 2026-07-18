@@ -92,6 +92,31 @@ miss, not per pageview.
 You do not have to do anything for this to work. It is just why image URLs on the
 site look like `/api/notion-image?blockId=...` rather than pointing at Notion.
 
+## Events (optional, a second database)
+
+`/events` is powered by its own Notion database. It is entirely optional — leave
+`NOTION_EVENTS_DATABASE_ID` unset and the page renders an empty state.
+
+Create a second database, connect the same integration to it (the `···` →
+**Connections** step again), and set:
+
+```
+NOTION_EVENTS_DATABASE_ID=<id from that database's URL>
+```
+
+| Property          | Type   | Required | Notes                                                        |
+| ----------------- | ------ | -------- | ------------------------------------------------------------ |
+| `Title`           | Title  | yes      | Event name.                                                  |
+| `Date`            | Date   | yes      | Set an **end date** too for multi-day events.                |
+| `Description`     | Text   | no       | Shown on the card.                                           |
+| `Location`        | Text   | no       | e.g. "Zoom" or "Harare".                                     |
+| `RegistrationUrl` | URL    | no       | Adds a **Register** button. Hidden once the event has passed. |
+
+Events sort themselves into **Coming up** and **Past events** by date — you do
+not mark them as past by hand. Because that transition happens purely with the
+passage of time, the page regenerates on a timer even when nothing in Notion has
+changed. Past events are paginated at `/events/page/2` and so on.
+
 ## Troubleshooting
 
 **The News page is empty.**

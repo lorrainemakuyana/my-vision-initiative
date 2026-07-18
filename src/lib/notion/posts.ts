@@ -1,5 +1,6 @@
 import type { INewsPost, IPaginatedPosts } from "@/interfaces/news";
 import {
+  NOTION_DATABASE_ID,
   POSTS_PER_PAGE,
   getDataSourceId,
   isNotionConfigured,
@@ -135,7 +136,7 @@ function isValidationError(error: unknown): boolean {
 export async function getPublishedPosts(): Promise<INewsPost[]> {
   if (!isNotionConfigured) return [];
 
-  const dataSourceId = await getDataSourceId();
+  const dataSourceId = await getDataSourceId(NOTION_DATABASE_ID!);
   const pages: NotionPage[] = [];
   let cursor: string | undefined;
 

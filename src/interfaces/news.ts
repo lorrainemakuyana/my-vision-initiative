@@ -12,6 +12,19 @@ export interface INewsPost {
   coverAlt: string;
 }
 
+export interface IEvent {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  location: string | null;
+  startDate: string;
+  /** Set only for multi-day events. */
+  endDate: string | null;
+  registrationUrl: string | null;
+  coverImage: string | null;
+}
+
 export interface IPaginatedPosts {
   posts: INewsPost[];
   page: number;

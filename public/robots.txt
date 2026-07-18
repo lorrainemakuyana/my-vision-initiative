@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Internal endpoints — nothing here is useful in an index.
+Disallow: /api/
+
+Sitemap: https://myvisioninitiative.org/sitemap.xml

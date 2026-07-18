@@ -80,10 +80,10 @@ function CohortsProgram() {
       </div>
 
       <div className=" bg-conic-180 from-purple via-magenta to-purple flex flex-col items-center justify-center px-5 py-14 text-white lg:py-20">
-        <h1 className="text-center text-3xl">
+        <h2 className="font-playfairDisplay text-center text-3xl font-bold">
           Make a difference in your life today, join the program!
-        </h1>
-        <p className="my-5 text-center text-lg font-light">
+        </h2>
+        <p className="font-lato my-5 text-center text-lg font-light">
           The next #MVIExperience Program will be launching soon. Reserve your
           spot today!
         </p>

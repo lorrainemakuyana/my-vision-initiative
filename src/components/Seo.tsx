@@ -20,7 +20,11 @@ const defaultMeta = {
   defaultDescription:
     "My Vision Initiative is a registered organization in Zimbabwe on a mission to empower young women and girls through curated programs!",
   siteUrl: "https://myvisioninitiative.org",
-  defaultImage: "/images/logo.png",
+  // /images/logo.png never existed, so every shared link rendered without a
+  // preview image. og.png is the 1200x661 share card.
+  defaultImage: "/images/og.png",
+  defaultImageWidth: "1200",
+  defaultImageHeight: "661",
   twitterHandle: "@mvi_initiative",
   locale: "en_US",
   themeColor: "#E11584",
@@ -51,16 +55,16 @@ export default function Seo({
   const fullUrl = `${defaultMeta.siteUrl}${router.asPath}`;
 
   // Construct full image URL
+  const isDefaultImage = image === defaultMeta.defaultImage;
   const fullImageUrl = image.startsWith("http")
     ? image
     : `${defaultMeta.siteUrl}${image}`;
 
-  // Generate structured data
-  const structuredData = {
+  const organization = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: defaultMeta.siteName,
-    description: description,
+    description: defaultMeta.defaultDescription,
     url: defaultMeta.siteUrl,
     logo: `${defaultMeta.siteUrl}/images/logo.webp`,
     sameAs: [
@@ -79,12 +83,47 @@ export default function Seo({
     foundingLocation: "Zimbabwe",
   };
 
+  // A news post is a BlogPosting, not the organization. Emitting only the
+  // Organization schema on an article leaves search engines without a headline,
+  // author or publish date to show for it.
+  const article =
+    type === "article"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: title,
+          description,
+          image: fullImageUrl,
+          url: fullUrl,
+          mainEntityOfPage: { "@type": "WebPage", "@id": fullUrl },
+          ...(publishedTime && { datePublished: publishedTime }),
+          ...(modifiedTime && { dateModified: modifiedTime }),
+          ...(author && { author: { "@type": "Person", name: author } }),
+          publisher: {
+            "@type": "Organization",
+            name: defaultMeta.siteName,
+            logo: {
+              "@type": "ImageObject",
+              url: `${defaultMeta.siteUrl}/images/logo.webp`,
+            },
+          },
+          ...(tags.length > 0 && { keywords: tags.join(", ") }),
+        }
+      : null;
+
+  const structuredData = article ?? organization;
+
   return (
     <Head>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <meta name="keywords" content={defaultMeta.keywords} />
+      {/* A post's own tags are more specific than the site-wide keywords, so
+          they replace them rather than being emitted as a second tag. */}
+      <meta
+        name="keywords"
+        content={tags.length > 0 ? tags.join(", ") : defaultMeta.keywords}
+      />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -115,8 +154,21 @@ export default function Seo({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:image" content={fullImageUrl} />
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="630" />
+      {/* Only declare dimensions for the image we control. A post's cover comes
+          from Notion at an unknown size, and asserting the wrong dimensions
+          makes scrapers crop or reject the preview. */}
+      {isDefaultImage && (
+        <>
+          <meta
+            property="og:image:width"
+            content={defaultMeta.defaultImageWidth}
+          />
+          <meta
+            property="og:image:height"
+            content={defaultMeta.defaultImageHeight}
+          />
+        </>
+      )}
       <meta property="og:image:alt" content={title || defaultMeta.siteName} />
 
       {/* Article specific meta tags */}
@@ -166,13 +218,18 @@ export default function Seo({
       />
       <link rel="manifest" href="/site.webmanifest" />
 
+      {/* Lets readers and aggregators discover the news feed automatically. */}
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="My Vision Initiative — News & Stories"
+        href="/feed.xml"
+      />
+
       {/* Additional Meta Tags */}
-      <meta name="author" content="My Vision Initiative" />
+      <meta name="author" content={author || "My Vision Initiative"} />
       <meta name="publisher" content="My Vision Initiative" />
       <meta name="format-detection" content="telephone=no" />
-
-      {/* Keywords (if provided) */}
-      {tags.length > 0 && <meta name="keywords" content={tags.join(", ")} />}
 
       {/* Structured Data */}
       <script

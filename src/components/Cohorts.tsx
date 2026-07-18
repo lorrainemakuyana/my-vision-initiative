@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const steps = [
@@ -75,6 +76,13 @@ function CohortsProgram() {
                 </li>
               ))}
             </ol>
+
+            <Link
+              href="/mviexperience/apply"
+              className="bg-magenta mt-8 inline-block rounded-md px-8 py-3 font-light text-white shadow-md transition hover:scale-105 hover:opacity-90"
+            >
+              Apply for the #MVIExperience
+            </Link>
           </div>
         </div>
       </div>

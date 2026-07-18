@@ -34,7 +34,7 @@ export default function Home({ latestPosts }: HomeProps) {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/programs"
+            href="/mviexperience"
             className="hover:text-magenta rounded-full border-2 border-white bg-transparent px-6 py-2 font-light text-white transition hover:bg-white"
           >
             Explore our programs

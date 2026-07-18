@@ -6,7 +6,7 @@ import { HiMenu, HiX } from "react-icons/hi";
 
 const navLinks = [
   { href: "/about", label: "About" },
-  { href: "/programs", label: "Programs" },
+  { href: "/mviexperience", label: "Programs" },
   { href: "/impact", label: "Impact" },
   { href: "/news", label: "News" },
   { href: "/volunteer", label: "Volunteer" },

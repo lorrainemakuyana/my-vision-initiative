@@ -936,6 +936,11 @@
   resolved "https://registry.npmjs.org/@nolyfill/is-core-module/-/is-core-module-1.0.39.tgz"
   integrity sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==
 
+"@notionhq/client@^5.23.1":
+  version "5.23.1"
+  resolved "https://registry.yarnpkg.com/@notionhq/client/-/client-5.23.1.tgz#eb10aeba1387a6031443e8c7238cd045b45c6c78"
+  integrity sha512-Y0jhh0ulft1x1c3uHFzBMHHQZzdfpCUV5JNFAZxzmjKEIkephQ0fle0g0ZqxTmHl1vP1ZOjzq0v47Ao4udBevw==
+
 "@rtsao/scc@^1.1.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@rtsao/scc/-/scc-1.1.0.tgz"

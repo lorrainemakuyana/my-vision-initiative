@@ -3,6 +3,7 @@ import React from "react";
 import type { INewsPost } from "@/interfaces/news";
 import NewsCard from "./news/NewsCard";
 import SectionHeading from "./shared/SectionHeading";
+import { Stagger, StaggerItem } from "./shared/motion";
 
 /** The three most recent stories, teased on the homepage. */
 function HomeNews({ posts }: { posts: INewsPost[] }) {
@@ -15,11 +16,13 @@ function HomeNews({ posts }: { posts: INewsPost[] }) {
         community.
       </SectionHeading>
 
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <Stagger className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <NewsCard key={post.id} post={post} />
+          <StaggerItem key={post.id} className="h-full">
+            <NewsCard post={post} />
+          </StaggerItem>
         ))}
-      </div>
+      </Stagger>
 
       <div className="mt-10 text-center">
         <Link

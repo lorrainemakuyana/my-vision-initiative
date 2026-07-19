@@ -1,5 +1,6 @@
 import React from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
+import { Stagger, StaggerItem } from "./shared/motion";
 
 const videos = [
   { id: "C8BmlSzIkUE", key: "video1" },
@@ -22,16 +23,16 @@ function Testimonials() {
             day.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+        <Stagger className="grid grid-cols-1 gap-10 md:grid-cols-2">
           {videos.map((video) => (
-            <div key={video.key} className="h-full w-full">
+            <StaggerItem key={video.key} className="h-full w-full">
               <YouTubeEmbed
                 videoid={video.id}
                 params="controls=1&rel=0&modestbranding=1&playsinline=1"
               />
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

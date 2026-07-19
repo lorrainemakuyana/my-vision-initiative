@@ -4,6 +4,7 @@ import { FiDownload } from "react-icons/fi";
 import Seo from "@/components/Seo";
 import PageBanner from "@/components/shared/PageBanner";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { Stagger, StaggerItem } from "@/components/shared/motion";
 import { impactAreas, impactStats, reports } from "@/lib/impact";
 
 export default function ImpactPage() {
@@ -20,9 +21,9 @@ export default function ImpactPage() {
 
       {impactStats.length > 0 && (
         <section className="w-full px-5 pb-16 lg:mx-auto lg:max-w-6xl lg:px-0">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {impactStats.map((stat) => (
-              <div
+              <StaggerItem
                 key={stat.label}
                 className="rounded-lg border border-gray-100 bg-white p-8 text-center shadow-lg shadow-gray-200"
               >
@@ -37,9 +38,9 @@ export default function ImpactPage() {
                     {stat.description}
                   </p>
                 )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </section>
       )}
 
@@ -49,9 +50,9 @@ export default function ImpactPage() {
             Our programs are built around six faculties. These are the changes we
             are working towards, and the terms on which we expect to be judged.
           </SectionHeading>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {impactAreas.map((area) => (
-              <div
+              <StaggerItem
                 key={area.title}
                 className="border-magenta rounded-lg border-l-4 bg-gray-50 p-6"
               >
@@ -61,9 +62,9 @@ export default function ImpactPage() {
                 <p className="font-lato font-light text-gray-600">
                   {area.description}
                 </p>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

@@ -3,6 +3,7 @@ import React from "react";
 import Seo from "@/components/Seo";
 import PageBanner from "@/components/shared/PageBanner";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { Stagger, StaggerItem } from "@/components/shared/motion";
 import { givingChannels, givingImpact } from "@/lib/donate";
 
 export default function DonatePage() {
@@ -18,11 +19,11 @@ export default function DonatePage() {
       />
 
       <section className="w-full px-5 pb-16 lg:mx-auto lg:max-w-6xl lg:px-0">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {givingChannels.map((channel) => (
-            <div
+            <StaggerItem
               key={channel.title}
-              className="flex flex-col items-center space-y-3 rounded-md border border-gray-100 bg-white p-8 text-center shadow-lg shadow-gray-300"
+              className="flex flex-col items-center space-y-3 rounded-md border border-gray-100 bg-white p-8 text-center shadow-lg shadow-gray-300 transition-shadow hover:shadow-xl"
             >
               <span className="text-magenta" aria-hidden="true">
                 {React.createElement(channel.icon, { size: 32 })}
@@ -53,9 +54,9 @@ export default function DonatePage() {
                   Get in touch to give
                 </Link>
               )}
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       {givingImpact.length > 0 && (

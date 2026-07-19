@@ -4,6 +4,7 @@ import React from "react";
 import Seo from "@/components/Seo";
 import PageBanner from "@/components/shared/PageBanner";
 import SectionHeading from "@/components/shared/SectionHeading";
+import { Reveal, Stagger, StaggerItem } from "@/components/shared/motion";
 import { mission, story, team, values, vision } from "@/lib/about";
 
 export default function AboutPage() {
@@ -18,7 +19,7 @@ export default function AboutPage() {
         subtitle="Who we are, why we exist, and the people behind My Vision Initiative."
       />
 
-      <section className="w-full px-5 pb-16 lg:mx-auto lg:max-w-6xl lg:px-0">
+      <Reveal as="section" className="w-full px-5 pb-16 lg:mx-auto lg:max-w-6xl lg:px-0">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="rounded-lg border border-gray-100 bg-white p-8 shadow-lg shadow-gray-200">
             <h2 className="font-playfairDisplay text-magenta mb-4 text-2xl font-bold">
@@ -37,7 +38,7 @@ export default function AboutPage() {
             </p>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       <section className="w-full bg-white px-5 py-16">
         <div className="lg:mx-auto lg:max-w-6xl">
@@ -62,11 +63,11 @@ export default function AboutPage() {
           The principles that shape how we design our programs and how we treat
           the young women and girls who join them.
         </SectionHeading>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
-            <div
+            <StaggerItem
               key={value.title}
-              className="flex flex-col items-center space-y-3 rounded-md border border-gray-100 bg-white p-8 text-center shadow-lg shadow-gray-300"
+              className="flex flex-col items-center space-y-3 rounded-md border border-gray-100 bg-white p-8 text-center shadow-lg shadow-gray-300 transition-shadow hover:shadow-xl"
             >
               <span className="text-magenta" aria-hidden="true">
                 {React.createElement(value.icon, { size: 32 })}
@@ -77,9 +78,9 @@ export default function AboutPage() {
               <p className="font-lato font-light text-gray-600">
                 {value.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </section>
 
       <section className="w-full bg-white px-5 py-16">

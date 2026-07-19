@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Stagger, StaggerItem } from "@/components/shared/motion";
 import { IoSettingsOutline } from "react-icons/io5";
 import { PiDiamondsFourLight, PiGenderIntersex } from "react-icons/pi";
 import { GiTeamIdea } from "react-icons/gi";
@@ -82,22 +83,22 @@ function Banner() {
             and girls through curated programs that focus on six key areas:
           </p>
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {faculties.map((faculty: Faculty, index: number) => (
-            <div
+            <StaggerItem
               key={index}
-              className="flex flex-col items-center justify-center space-y-3 rounded-md border border-gray-100 bg-white p-10 text-black shadow-lg shadow-gray-300"
+              className="flex flex-col items-center justify-center space-y-3 rounded-md border border-gray-100 bg-white p-10 text-black shadow-lg shadow-gray-300 transition-shadow hover:shadow-xl"
             >
               <p className="text-magenta">
                 {faculty.icon}
               </p>
-              <h1 className="font-lato text-xl font-medium">{faculty.name}</h1>
+              <h3 className="font-lato text-xl font-medium">{faculty.name}</h3>
               <p className="font-lato text-center font-light">
                 {faculty.description}
               </p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
         <div className="mt-10 text-center">
           <Link
